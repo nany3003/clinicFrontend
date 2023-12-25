@@ -12,14 +12,6 @@ function App() {
   const onClick = () => {
     console.log("Button clicked");
     setAlertVisiblity(true);
-    {
-      alertVisible &&
-        Alert({
-          title: "This is an Alert",
-          description: "You have been Alerted",
-          color: "warning",
-        });
-    }
   };
   return (
     <div>
@@ -31,6 +23,14 @@ function App() {
       <Button color={"primary"} onClick={onClick}>
         Register
       </Button>
+      {alertVisible && (
+        <Alert
+          title="This is an Alert"
+          description="You have been Alerted"
+          color="danger"
+          onClose={() => setAlertVisiblity(false)}
+        />
+      )}
     </div>
   );
 }

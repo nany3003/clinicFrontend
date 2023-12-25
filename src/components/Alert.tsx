@@ -12,8 +12,9 @@ interface Props {
     | "info"
     | "light"
     | "dark";
+  onClose: () => void;
 }
-const Alert = ({ title, description, color = "warning" }: Props) => {
+const Alert = ({ title, description, onClose, color = "warning" }: Props) => {
   return (
     <div
       className={`alert alert-${color} alert-dismissible fade show`}
@@ -22,12 +23,10 @@ const Alert = ({ title, description, color = "warning" }: Props) => {
       <strong> {title} </strong> {description}
       <button
         type="button"
-        className="close"
-        data-dismiss="alert"
-        aria-label="Close"
-      >
-        <span aria-hidden="true">&times;</span>
-      </button>
+        className="btn-close"
+        data-bs-dismiss="alert"
+        onClick={onClose}
+      ></button>
     </div>
   );
 };
