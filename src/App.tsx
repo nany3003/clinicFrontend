@@ -1,6 +1,7 @@
 import { useState } from "react";
 import Button from "./components/Button.tsx";
 import { produce } from "immer";
+import ExpandableText from "./components/ExpandableText.tsx";
 
 function App() {
   const [selectedIndex, setSelectedIndex] = useState(-1);
@@ -22,25 +23,13 @@ function App() {
   };
   return (
     <div>
-      <ul className="list-group">
-        <h1>
-          {" "}
-          {cart.items.map((item, index) => (
-            <li
-              key={item.id}
-              onClick={() => setSelectedIndex(index)}
-              className={
-                selectedIndex === index
-                  ? "list-group-item active"
-                  : "list-group-item"
-              }
-            >
-              {`ID: ${item.id}, Title: ${item.title}, Quantity: ${item.quantity}`}
-            </li>
-          ))}{" "}
-        </h1>
-      </ul>
-      <Button onClick={handleClick}>Click</Button>
+      <ExpandableText maxLetterOnCollapsed={20}>
+        lorem100 lorem100 lorem100 lorem100 lorem100 lorem100 lorem100 lorem100
+        lorem100 lorem100 lorem100 lorem100 lorem100 lorem100 lorem100 lorem100
+        lorem100 lorem100 lorem100 lorem100 lorem100 lorem100 lorem100 lorem100
+        lorem100 lorem100 lorem100 lorem100 lorem100 lorem100 lorem100 lorem100
+        lorem100 lorem100 lorem100 lorem100 lorem100 lorem100 lorem100 lorem100
+      </ExpandableText>
     </div>
   );
 }
